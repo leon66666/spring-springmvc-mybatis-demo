@@ -45,7 +45,7 @@ public class UploadController {
 		//创建jersey服务器，进行跨服务器上传
 		Client client = Client.create();
 		//把文件关联到远程服务器
-		WebResource resource = client.resource("http://localhost:8998/ImageServer/upload/"+newFileName+suffix);
+		WebResource resource = client.resource("http://localhost:9998/upload/"+newFileName+suffix);
 		//上传
 		resource.put(String.class, fbytes);
 		
@@ -53,7 +53,7 @@ public class UploadController {
 		//ajax回调函数需要会写什么东西？
 		//图片需要回显：需要图片完整路径
 		//数据库保存图片的相对路径.
-		String fullPath ="http://localhost:8998/ImageServer/upload/"+newFileName+suffix;
+		String fullPath ="http://localhost:9998/upload/"+newFileName+suffix;
 		
 		String relativePath="/upload/"+newFileName+suffix;
 		//{"":"","":""}
