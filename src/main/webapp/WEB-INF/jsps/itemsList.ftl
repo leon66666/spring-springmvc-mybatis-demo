@@ -1,4 +1,4 @@
-<#assign picPath="http://localhost:8998/ImageServer" />
+<#assign picPath="http://localhost:9888" />
 <#assign projectName="Spring_4.1.9_SpringMVC_Mybatis_3.2.7" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>

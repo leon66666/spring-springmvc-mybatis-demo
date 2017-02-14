@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<!-- 自定义别名 -->
 	<typeAliases>
 		<!-- 单个别名定义  -->
-		<typeAlias type="zhongqiu.spring_springmvc_mybatis_demo" alias="zhongqiu"/>
+		<!-- <typeAlias type="zhongqiu.spring_springmvc_mybatis_demo" alias="zhongqiu"/> -->
 
 		<!-- 批量别名定义（推荐） package：指定包名称来为该包下的po类声明别名，默认的别名就是类名（首字母大小写都可） -->
 		<!-- <package name="zhongqiu.spring_mybatis_demo" /> -->
