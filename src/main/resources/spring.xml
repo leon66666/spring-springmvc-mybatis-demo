@@ -14,7 +14,7 @@
 		http://www.springframework.org/schema/tx 
 		http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
 		
-		<context:component-scan base-package="zhongqiu"></context:component-scan>
+		<context:component-scan base-package="zhongqiu.spring_springmvc_mybatis_demo"></context:component-scan>
 		
 	<!-- 第一步：配置数据源 -->
 	<context:property-placeholder location="classpath:jdbc.properties" />
@@ -23,13 +23,12 @@
 		<property name="driverClass" value="${jdbc.driver}"></property>
 		<property name="user" value="${jdbc.username}"></property>
 		<property name="password" value="${jdbc.password}"></property>
-
 	</bean>
 
 	<!-- 第二步：创建sqlSessionFactory。生产sqlSession -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 	<property name="dataSource" ref="dataSource"></property>
-	<property name="configLocation" value="classpath:sqlMapConfig.xml"></property>
+	<property name="configLocation" value="classpath:mybatis.xml"></property>
 	</bean>
 	
 	<!-- 配置mybatis接口代理开发
@@ -39,7 +38,7 @@
 		*　接口的方法名必须和映射Statement的ｉｄ一致
 	 -->
 	 <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-	 <property name="basePackage" value="zhongqiu.mapper"></property>
+	 <property name="basePackage" value="zhongqiu.spring_springmvc_mybatis_demo.mapper"></property>
 	 <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
 	 </bean>
 	
@@ -62,7 +61,7 @@
 	
 	<!-- 配置拦截service -->
 	<aop:config>
-	<aop:advisor advice-ref="txAdvice" pointcut="execution(* zhongqiu.service.*.*(..))"/>
+	<aop:advisor advice-ref="txAdvice" pointcut="execution(* zhongqiu.spring_springmvc_mybatis_demo.service.*.*(..))"/>
 	</aop:config>
 	
 </beans>
