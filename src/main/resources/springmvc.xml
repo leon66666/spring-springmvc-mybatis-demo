@@ -15,32 +15,32 @@
 		http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
 
 	<context:component-scan base-package="zhongqiu"></context:component-scan>
-	
-	<!-- annotation-driven:默认创建了多个对象：RequestMappingHandlerMapping，RequestMappingHandlerAdapter
-		也就提供对json格式支持
-	 -->
-	<mvc:annotation-driven/>
-	
-	<!--jsp的视图解析器，不能和freemarker的模板文件配置同时存在  -->
+
+	<!-- annotation-driven:默认创建了多个对象：RequestMappingHandlerMapping，RequestMappingHandlerAdapter 
+		也就提供对json格式支持 -->
+	<mvc:annotation-driven />
+
+	<!--jsp的视图解析器，不能和freemarker的模板文件配置同时存在 -->
 	<!-- 配置sprigmvc视图解析器：解析逻辑试图 后台返回逻辑试图：index 视图解析器解析出真正物理视图：前缀+逻辑试图+后缀====/WEB-INF/jsps/index.jsp -->
-	<!-- <bean
+	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/jsps/"></property>
 		<property name="suffix" value=".jsp"></property>
-	</bean> -->
-	
+	</bean>
+
 	<!-- 配置freemarker模版文件前缀，模版文件编码 -->
-	<bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer"> 
+	<!-- <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer"> 
 		<property name="templateLoaderPath" value="/WEB-INF/jsps/"></property> <property 
-		name="defaultEncoding" value="UTF-8"></property> </bean>
+		name="defaultEncoding" value="UTF-8"></property> </bean> -->
 	<!-- 配置freemarker视图解析后缀，页面显示视图编码 -->
-	<bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver"> 
+	<!-- <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver"> 
 		<property name="suffix" value=".ftl"></property> <property name="contentType" 
-		value="text/html;charset=utf-8"></property> </bean>
-	
+		value="text/html;charset=utf-8"></property> </bean> -->
+
 	<!-- 文件上传解析器 -->
-	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-	<property name="maxUploadSize" value="10240000"></property>
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="10240000"></property>
 	</bean>
 
 	<!--拦截器 -->

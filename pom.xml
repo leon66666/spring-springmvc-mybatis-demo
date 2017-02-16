@@ -13,6 +13,12 @@
 			<version>2.3</version>
 			<scope>provided</scope>
 		</dependency>
+		<!--标准JAVA事务处理接口 -->
+		<dependency>
+			<groupId>javax.transaction</groupId>
+			<artifactId>jta</artifactId>
+			<version>1.1</version>
+		</dependency>
 		<!--测试 -->
 		<dependency>
 			<groupId>junit</groupId>

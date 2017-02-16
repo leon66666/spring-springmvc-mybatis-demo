@@ -14,7 +14,7 @@ public class TestTask {
 	 * 表示每分钟的第30秒执行，而（*斜杠30）表示每30秒执行
 	 * 
 	 */
-	@Scheduled(cron = "*/3 * * * * *")
+	// @Scheduled(cron = "*/3 * * * * *")
 	public void firstTask() {
 		System.out.println(
 				"==============it is first task!时间：" + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
