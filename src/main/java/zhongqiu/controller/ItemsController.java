@@ -3,11 +3,16 @@ package zhongqiu.controller;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
+import zhongqiu.interceptor.AuthCheck;
 import zhongqiu.po.Items;
 import zhongqiu.service.ItemsService;
 
@@ -19,10 +24,23 @@ public class ItemsController {
 	private ItemsService itemsService;
 
 	// 欢迎
+	@AuthCheck(type = "user", write = false)
 	@RequestMapping("hello")
 	public String hello() {
 		System.out.println("11111111111111");
 		return "hello";
+	}
+
+	@RequestMapping(value = "manager/login.do", method = RequestMethod.GET)
+	public ModelAndView login(HttpSession httpSession) {
+		httpSession.setAttribute("manager", "manager");
+		return new ModelAndView(new RedirectView("../admin/main.jsp"));
+	}
+
+	@RequestMapping(value = "manager/logout.do", method = RequestMethod.GET)
+	public String logout(HttpSession httpSession) {
+		httpSession.getAttribute("manager");
+		return "success";
 	}
 
 	// 查询所有商品

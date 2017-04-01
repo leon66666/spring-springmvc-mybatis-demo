@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:context="http://www.springframework.org/schema/context"
@@ -48,11 +48,9 @@
 		<!--多个拦截器,顺序执行 -->
 		<mvc:interceptor>
 			<mvc:mapping path="/**" />
-			<bean class="zhongqiu.interceptor.Interceptorone"></bean>
-		</mvc:interceptor>
-		<mvc:interceptor>
-			<mvc:mapping path="/**" />
-			<bean class="zhongqiu.interceptor.Interceptortwo"></bean>
+			<mvc:exclude-mapping path="/js/**" />
+			<mvc:exclude-mapping path="/css/**" />
+			<bean class="zhongqiu.interceptor.ActionInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors>
 </beans>
